@@ -1,6 +1,6 @@
 import random 
 
-secreto = radom.randint(1, 100)
+secreto = random.randint(1, 100)
 tentativas = 3
 
 print("==== Desafio do Número Secreto ====")
