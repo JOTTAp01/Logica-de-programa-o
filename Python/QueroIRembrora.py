@@ -53,7 +53,7 @@ while True:
             media = soma/quantidade
             print(f"Quantidade de notas: {quantidade}")
             print(f"Soma das notas: {soma:.2f}".replace(".", ","))
-            print(f"Média das notas: {media:.2f]}".replace(".", ","))
+            print(f"Média das notas: {media:.2f}".replace(".", ","))
 
             if media >= 7:
                 print("A turma está com bom desempenho!")
