@@ -1,0 +1,17 @@
+#.Append() - Adiciona um elemento a lista
+#.Remove() - Remove um elemento da lista
+#.Insert() - Adiciona um elemento em uma posição específica da lista
+#.strip() - Apaga o espaço antes da escrita e após
+#.capitalize() - Deixa a primeira letra de uma string sempre maiúscula e as demais minúsculas
+#.title() - Se você quiser que cada palavra da frase comece com letra maiúscula (o que é conhecido como title case),
+
+
+#.len() - Mostra quantidade de elementos da lista, ou seja, o tamanho da lista
+# Pode ser usado em cadeia de caracteres (str), tuplas (tuple), ele vai contar a quantidade de caracteres ou elementos.
+
+
+#.Sum() - Metodo que serve para somar os elementos números
+
+#.index() - Serve para retornar a posição  (indice) onde o nome foi encontrado dentro da tupla
+
+#.items() - em Python é um método de dicionários que retorna uma nova visualização dos itens do dicionário.
