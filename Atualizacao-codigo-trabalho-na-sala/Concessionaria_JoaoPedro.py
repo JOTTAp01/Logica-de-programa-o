@@ -32,6 +32,7 @@ tabela_fipe = {
 
 }
 
+#Dicionário que mostra todas as marcas e os carros com valores
 listaCarro = {
     "=====LISTA DE CARROS=====" : "",
     "=====PORSCHE=====" : "",
@@ -103,19 +104,83 @@ print(f"Nome: {cliente['nome']}")
 print(f"Número: {cliente['numero']}")
 print(f"Seu saldo: {cliente['saldo']:.2f}".replace(".",","))
 
+#Função para escolher a marca
+def escolher_marca():
+    print("\n=====SELECIONE A MARCA=====")
+
+    lista_marcas = []
+    for nome_marca, modelos in marcas.items():
+        lista_marcas.append(nome_marca)
+        print(f"{len(lista_marcas)}. {nome_marca}")
+
+    escolha = input("Escolha a marca: ")
+
+    if not escolha.isdigit():
+        print("Entrada inválida.")
+        return None
+    
+    escolha = int(escolha) -1
+
+    if escolha < 0 or escolha >= len(lista_marcas):
+        print("Marca inválida.")
+        return None
+
+    return lista_marcas[escolha]
+
+
+#função para compra de carros
+def comprar_carro():
+    print("\n=====COMPRA DE VEÍCULO=====\n")
+
+    marca = escolher_marca()
+    if not marca:
+        return None
+    
+    print("\nModelos disponíveis dessa marca:")
+    modelos_marca = [m for m in carros_venda if m in marcas[marca]]
+
+    if not modelos_marca:
+        print("Não há veículos dessa marca para venda.")
+        return None
+    
+    for i in range(len(modelos_marca)):
+        print(f"{i+1}. {modelos_marca[i]}")
+
+    escolha = input("Escolha o modelo: ")
+
+    if not escolha.isdigit():
+        print("Entrada inválida.")
+        return None
+    
+    escolha = int(escolha) - 1 
+
+    if escolha < 0 or escolha >= len(modelos_marca):
+        print("Escolha inválida.")
+        return None
+    
+    modelo = modelos_marca[escolha]
+    valor_fipe = tabela_fipe[modelo]
+    preco_venda = valor_fipe * 1.25
+
+    if cliente["saldo"] < preco_venda:
+        print("Saldo insuficiente.")
+        return None
+    
+    cliente["saldo"] -= preco_venda
 
 
 
 
 
-def  lista_carros():
+#Função para mostrar todas as marcas e seus respectivos carros
+def lista_carros():
     for k, v  in listaCarro.items():
         print(f"{k} {v}")
 
 
 
 
-
+#Função para mostrar o saldo atual da pessoa
 def mostrar_saldo():
     print(f"Saldo atual R$ {cliente['saldo']:.2f}".replace(".",","))
 
@@ -160,8 +225,8 @@ def menu():
                 break
             case _:
                 print(" Opção inválida! Tente novamente.")
-
 menu()
+
 
 
 
